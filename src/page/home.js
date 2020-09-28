@@ -29,7 +29,7 @@ const Home = () => {
         <Row>
           <Col xs="12" sm="10">
             <Slide />
-            <h1>หนังสือแนะนำ</h1>
+            <h1>หนังสือแนะนำ1111111</h1>
             <Row>
               {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
             </Row>
