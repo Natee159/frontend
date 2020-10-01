@@ -8,8 +8,8 @@ const Login = () => {
       
       const handleSubmit = event => {
             event.preventDefault();
-            alert('register');
-            axios.post(`http://localhost/api/product/show.php`, JSON.stringify({
+            alert('login');
+            axios.get(`http://localhost/api/product/login.php`, JSON.stringify({
                   "Email": Email,
                   "Password": Password
             }))
