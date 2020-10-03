@@ -5,14 +5,6 @@ import Book from '../component/book.js';
 import Slide from '../component/slide.js';
 import axios from 'axios';
 
-const Colum = (props) => {
-  return (
-    <Col>
-      <Book name={props.name} price={props.price} img={props.img} productID={props.productID} />
-    </Col>
-  )
-}
-
 const Home = () => {
   const [data, setData] = useState([])
 
@@ -31,17 +23,17 @@ const Home = () => {
             <Slide />
             <h1>หนังสือแนะนำ</h1>
             <Row>
-              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
+              {data.map(d => <Book data={d} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
             <h1>หนังสือขายดี</h1>
             <Row>
-              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
+              {data.map(d => <Book data={d} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
             <h1>หนังสือออกใหม่</h1>
             <Row>
-              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
+              {data.map(d => <Book data={d} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
           </Col>

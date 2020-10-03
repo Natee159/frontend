@@ -1,4 +1,5 @@
 import React from 'react';
+import { Col } from 'reactstrap';
 import {
     Card, CardImg, CardBody,
     CardTitle, CardSubtitle, Button
@@ -9,20 +10,21 @@ const Book = (props) => {
     const history = useHistory();
 
     const handleClick = () => {
-        history.push("/detail/" + props.productID);
+        history.push("/detail/" + props.data.Product_id);
     }
     return (
+        <Col>
             <div>
                 <Card>
-                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.img)} alt="Card image cap" />
+                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.data.Image)} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{props.name}</CardTitle>
-                        <CardSubtitle>ราคา {props.price} บาท</CardSubtitle>
-
+                        <CardTitle>{props.data.Product_name}</CardTitle>
+                        <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
                         <Button>หยิบใส่ตะกร้า</Button>
                     </CardBody>
                 </Card>
             </div>
+        </Col>
     )
 }
 
