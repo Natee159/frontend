@@ -1,22 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+      const history = useHistory();
       const [Email, setEmail] = useState()
       const [Password, setPassword] = useState()
       
       const handleSubmit = event => {
             event.preventDefault();
-            alert('login');
-            axios.get(`http://localhost/api/product/login.php`, JSON.stringify({
-                  "Email": Email,
-                  "Password": Password
-            }))
-                  .then(res => {
-                        console.log(res);
-                        console.log(res.data);
-                  })
+            axios.get(`http://localhost/api/product/login.php?Email=` + Email + '&Password=' + Password )
+            .then(res => {
+                console.log(res.data.Email)
+                console.log(res.data.Status)
+                if(res.data.Status) {
+                  alert("ยินดีตอนรับ")
+                  history.push("/")
+                }else{
+                  alert("รหัสผ่านไม่ถูกต้อง")
+                }
+            })
       }
 
       return (
