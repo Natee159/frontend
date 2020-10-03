@@ -11,7 +11,6 @@ const Update = () => {
     const [Image, setImage] = useState()
     const [Total, setTotal] = useState()
     const [Price, setPrice] = useState()
-    const [Order_Num, setOrder_Num] = useState()
     const [Category_ID, setCategory_ID] = useState()
     const [Promotion_id, setPromotion_id] = useState()
 
@@ -27,7 +26,6 @@ const Update = () => {
             "Image": Image,
             "Total": Total,
             "Price": Price,
-            "Order_Num": Order_Num,
             "Category_ID": Category_ID,
             "Promotion_id": Promotion_id
         }))
@@ -105,14 +103,6 @@ const Update = () => {
                             </Col>
                             <Col>
                                 <input type="text" onChange={e => { setPrice(e.target.value) }} />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <p>Order_Num</p>
-                            </Col>
-                            <Col>
-                                <input type="text" onChange={e => { setOrder_Num(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>
