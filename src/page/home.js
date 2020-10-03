@@ -16,13 +16,13 @@ const Colum = (props) => {
 const Home = () => {
   const [data, setData] = useState([])
 
-  // useEffect(() => {
-  //   axios.get(`http://localhost/ApiBookStore/product/select/All.php`)
-  //     .then(res => {
-  //       console.log(res.data.records)
-  //       setData(res.data.records)
-  //     })
-  // }, []);
+  useEffect(() => {
+    axios.get(`http://localhost/api/product/show.php`)
+      .then(res => {
+        console.log(res.data.records)
+        setData(res.data.records)
+      })
+  }, []);
 
   return (
       <Container>
@@ -31,17 +31,17 @@ const Home = () => {
             <Slide />
             <h1>หนังสือแนะนำ</h1>
             <Row>
-              {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
+              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
             <h1>หนังสือขายดี</h1>
             <Row>
-              {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
+              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
             <h1>หนังสือออกใหม่</h1>
             <Row>
-              {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
+              {data.map(d => <Colum name={d.Product_name} price={d.Price} img={d.Image} productID={d.Product_id} />)}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
           </Col>

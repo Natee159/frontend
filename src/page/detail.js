@@ -19,7 +19,7 @@ const Detail = () => {
     return (
         <div>
             <Container>
-                {data.map(d => <h1>{d.Detail}</h1>)}
+                {data.map(d => <h1>{d.Product_name}</h1>)}
             </Container>
         </div>
     );

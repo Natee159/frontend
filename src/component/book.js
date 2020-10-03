@@ -14,7 +14,7 @@ const Book = (props) => {
     return (
             <div>
                 <Card>
-                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./" + props.img)} alt="Card image cap" />
+                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.img)} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{props.name}</CardTitle>
                         <CardSubtitle>ราคา {props.price} บาท</CardSubtitle>
