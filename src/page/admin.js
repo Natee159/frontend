@@ -29,10 +29,10 @@ const Admin = () => {
                         <th>Image</th>
                         <th>Total</th>
                         <th>Price</th>
-                        <th>Order_Num</th>
                         <th>Category_ID</th>
                         <th>Promotion_id</th>
                         <th>delete</th>
+                        {/* <th>update</th> */}
                     </tr>
                 </thead>
                 <tbody>
@@ -65,10 +65,10 @@ const Tr = (props) => {
             <td><img    ></img></td>
             <td>{props.data.Total}</td>
             <td>{props.data.Price}</td>
-            <td>{props.data.Order_Num}</td>
             <td>{props.data.Category_ID}</td>
             <td>{props.data.Promotion_id}</td>
             <td><Button onClick={() => Delete(props.data.Product_id)} >Delete</Button></td>
+            {/* <td><Button onClick={() => Update(props.data.Product_id)} >Update</Button></td> */}
         </tr>
     );
 }

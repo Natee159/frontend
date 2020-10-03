@@ -18,7 +18,6 @@ const Book = (props) => {
                     <CardBody>
                         <CardTitle>{props.name}</CardTitle>
                         <CardSubtitle>ราคา {props.price} บาท</CardSubtitle>
-
                         <Button>หยิบใส่ตะกร้า</Button>
                     </CardBody>
                 </Card>
