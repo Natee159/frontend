@@ -27,7 +27,6 @@ const Update = () => {
             "Image": Image,
             "Total": Total,
             "Price": Price,
-            "Order_Num": Order_Num,
             "Category_ID": Category_ID,
             "Promotion_id": Promotion_id
         }))
@@ -105,14 +104,6 @@ const Update = () => {
                             </Col>
                             <Col>
                                 <input type="text" onChange={e => { setPrice(e.target.value) }} />
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                                <p>Order_Num</p>
-                            </Col>
-                            <Col>
-                                <input type="text" onChange={e => { setOrder_Num(e.target.value) }} />
                             </Col>
                         </Row>
                         <Row>

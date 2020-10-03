@@ -99,14 +99,6 @@ const Insert = () => {
                                     </Row>
                                     <Row>
                                           <Col>
-                                                <p>Order_Num</p>
-                                          </Col>
-                                          <Col>
-                                                <input type="text" onChange={e => { setOrder_Num(e.target.value) }} />
-                                          </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
                                                 <p>Category_ID</p>
                                           </Col>
                                           <Col>
