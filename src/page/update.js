@@ -11,7 +11,6 @@ const Update = () => {
     const [Image, setImage] = useState()
     const [Total, setTotal] = useState()
     const [Price, setPrice] = useState()
-    const [Order_Num, setOrder_Num] = useState()
     const [Category_ID, setCategory_ID] = useState()
     const [Promotion_id, setPromotion_id] = useState()
 
