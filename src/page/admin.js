@@ -66,6 +66,7 @@ const Tr = (props) => {
             <td>{props.data.Category_ID}</td>
             <td>{props.data.Promotion_id}</td>
             <td><Button onClick={() => Delete(props.data.Product_id)} >Delete</Button></td>
+            {/* <td><Button onClick={() => update(props.data.Product_id)} >Delete</Button></td> */}
         </tr>
     );
 }

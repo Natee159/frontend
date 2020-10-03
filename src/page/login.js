@@ -15,7 +15,7 @@ const Login = () => {
                 console.log(res.data.Email)
                 console.log(res.data.Status)
                 if(res.data.Status) {
-                  alert("ยินดีตอนรับ")
+                  alert("ยินดีต้อนรับ")
                   history.push("/")
                 }else{
                   alert("รหัสผ่านไม่ถูกต้อง")
@@ -45,7 +45,7 @@ const Login = () => {
                                                 <input type="password" onChange={e => { setPassword(e.target.value) }} />
                                           </Col>
                                     </Row>
-                                    <Button color="primary" type="submit">Add</Button>
+                                    <Button color="primary" type="submit">Login</Button>
                               </form>
                         </Col>
                   </Row>
