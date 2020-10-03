@@ -34,7 +34,7 @@ const Home = () => {
               {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
             </Row>
             <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
-            <h1>หนังสือขายดี1</h1>
+            <h1>หนังสือขายดี</h1>
             <Row>
               {/* {data.map(d => <Colum name={d.Product_Name} price={d.Price} img={d.Image} productID={d.Product_ID} />)} */}
             </Row>
