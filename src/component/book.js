@@ -5,6 +5,7 @@ import {
     CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const Book = (props) => {
     const history = useHistory();
@@ -13,7 +14,31 @@ const Book = (props) => {
         history.push("/detail/" + props.data.Product_id);
     }
     const handleClick1 = () => {
-        history.push("/Cart" );
+        axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
+            "Total": parseInt(props.data.Total)-1,
+            "Product_id": props.data.Product_id
+        }))
+            .then(res => {
+                console.log(res.data);
+            })
+        axios.post(`http://localhost/api/product/insertpurchase.php`, JSON.stringify({
+            "Product_id": props.data.Product_id
+        }))
+            .then(res => {
+                console.log(res.data);
+            })
+        axios.post(`http://localhost/api/product/insertorder.php`, JSON.stringify({
+            "Date": "2020-10-01",
+            "Time": "14:29:00",
+            "Total": props.data.Price,
+            "Amount": "1",
+            "Shipment": "postoffice",
+            "Status": "รอชำระเงิน",
+            "Customer_id": "5"
+        }))
+            .then(res => {
+                console.log(res.data);
+            })
     }
     return (
         <Col>
