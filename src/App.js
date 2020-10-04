@@ -10,6 +10,7 @@ import Home from './page/home.js';
 import Register from './page/register.js';
 import Login from './page/login.js';
 import Cart from './page/cart.js';
+import Search from './page/search.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,6 +43,9 @@ const App = () => {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/search/:Type_search/:Product_name">
+          <Search />
         </Route>
         <Route path="/Detail/:Product_ID">
           <Detail />
