@@ -12,6 +12,9 @@ const Book = (props) => {
     const handleClick = () => {
         history.push("/detail/" + props.data.Product_id);
     }
+    const handleClick1 = () => {
+        history.push("/Cart" );
+    }
     return (
         <Col>
             <div>
@@ -20,7 +23,7 @@ const Book = (props) => {
                     <CardBody>
                         <CardTitle>{props.data.Product_name}</CardTitle>
                         <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
-                        <Button>หยิบใส่ตะกร้า</Button>
+                        <Button onClick={handleClick1}>หยิบใส่ตะกร้า</Button>
                     </CardBody>
                 </Card>
             </div>

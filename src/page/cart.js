@@ -4,10 +4,11 @@ import { Container, Row, Col, Button,Form,CustomInput,Label,FormGroup } from 're
 
 const Cart=()=>{
     const [data, setData] = useState([])
+    const [Customer_id,setCustomer_id] = useState([5])
     // const [refre, setData] = useState([])
 
     useEffect(() => {
-        axios.get()
+        axios.get(`http://localhost/api/product/readpurchase.php?Customer_id=`+ Customer_id)
             .then(res => {
                 console.log(res.data.records)
                 setData(res.data.records)
@@ -33,13 +34,15 @@ const Cart=()=>{
                                     <th>สถานะ</th>
                                 </tr>
                             </thead>
-                           
-                            
+                            {data.map(d => <Tr data={d} />)}
                         </table>
                        
                     
               </Col>
         </Row>
+        <Row>
+
+            </Row>
         <h5>ช่องทางการชำระเงิน</h5>
         
         <Row>
@@ -63,5 +66,17 @@ const Cart=()=>{
         
 
     )
+}
+const Tr = (props) => {
+    return (
+        <tr>
+            <td>{props.data.Product_id}</td>
+            <td>{props.data.Product_name}</td>
+            <td>{props.data.Price}</td>
+            <td>{props.data.Amount}</td>
+            <td>{props.data.Total}</td>
+            <td>{props.data.Status}</td>
+        </tr>
+    );
 }
 export default Cart

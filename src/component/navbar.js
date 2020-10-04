@@ -12,7 +12,8 @@ import {
   DropdownMenu,
   DropdownItem,
   NavbarText,
-  Container
+  Container,
+  CardImg
 } from 'reactstrap';
 
 import {
