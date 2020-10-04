@@ -14,13 +14,17 @@ const Login = () => {
             .then(res => {
                 console.log(res.data.Email)
                 console.log(res.data.Status)
+                console.log(res.data.Customer_id)
                 if(res.data.Status) {
                   alert("ยินดีต้อนรับ")
-                  history.push("/")
+                  history.push("/home")
                 }else{
                   alert("รหัสผ่านไม่ถูกต้อง")
                 }
             })
+      }
+      const handleClick1 = event => {
+            history.push("/register");
       }
 
       return (
@@ -46,6 +50,7 @@ const Login = () => {
                                           </Col>
                                     </Row>
                                     <Button color="primary" type="submit">Login</Button>
+                                    <Button onClick={handleClick1} color="primary" type="submit">Registers</Button>
                               </form>
                         </Col>
                   </Row>

@@ -23,6 +23,9 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/">
+          <Login />
+        </Route>
+        <Route  path="/home">
           <Home />
         </Route>
         <Route path="/insert">
@@ -36,9 +39,6 @@ const App = () => {
         </Route>
         <Route path="/register">
           <Register />
-        </Route>
-        <Route path="/login">
-          <Login />
         </Route>
         <Route path="/cart">
           <Cart />

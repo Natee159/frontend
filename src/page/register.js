@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+      const history = useHistory();
       const [Firstname, setFirstname] = useState()
       const [Lastname, setLastname] = useState()
       const [Gender, setGender] = useState()
@@ -28,6 +30,7 @@ const Register = () => {
                   .then(res => {
                         console.log(res);
                         console.log(res.data);
+                        history.push("/")
                   })
       }
 

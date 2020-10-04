@@ -28,7 +28,7 @@ const NavBar = (props) => {
     return (
     <Navbar color="light" light expand="md">
         <Container>
-          <NavbarBrand href="/">Home</NavbarBrand>
+          <NavbarBrand href="/home">Home</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
@@ -41,21 +41,15 @@ const NavBar = (props) => {
               <NavItem>
                 <NavLink href="/update">Update</NavLink>
               </NavItem>
+              <NavItem>
+                <NavLink href="/cart">ตะกร้าสินค้า</NavLink>
+              </NavItem>
             </Nav>
+            
             <Nav>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                เข้าสู่ระบบ
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>
-                <NavLink href="/login">เข้าสู่ระบบ</NavLink>
-                </DropdownItem>
-                <DropdownItem>
-                <NavLink href="/register">สมัครสมาชิก</NavLink>
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+              <NavItem>
+                <NavLink href="/">เข้าสู่ระบบ</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
         </Container>
