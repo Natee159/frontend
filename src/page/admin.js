@@ -60,7 +60,7 @@ const Tr = (props) => {
             <td>{props.data.Author_name}</td>
             <td>{props.data.Publi_name}</td>
             <td>{props.data.Detail}</td>
-            <td>{props.data.Image} </td> 
+            <td><img src={require("../component/img/" + props.data.Image)} alt={props.data.image} width="80" height="100"/></td> 
             <td>{props.data.Total}</td>
             <td>{props.data.Price}</td>
             <td>{props.data.Category_ID}</td>
