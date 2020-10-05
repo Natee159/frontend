@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button, Form, CustomInput, Label, FormGroup } from 'reactstrap';
 import getCookie from '../component/getCookie.js';
-
+import { useHistory } from "react-router-dom";
 const Cart = () => {
     const [data, setData] = useState([])
-
+    const history = useHistory();
     useEffect(() => {
         axios.get(`http://localhost/api/product/readpurchase.php?Customer_id=` + getCookie("Customer_ID"))
             .then(res => {
                 console.log(res.data.records)
                 setData(res.data.records)
             })
+            if(getCookie("username") === ""){
+                history.push("/")
+              }
     }, []);
 
     const handleClick = () => {
