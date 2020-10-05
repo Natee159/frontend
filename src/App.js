@@ -26,7 +26,7 @@ const App = () => {
         <Route exact path="/">
           <Login />
         </Route>
-        <Route  path="/home">
+        <Route path="/home">
           <Home />
         </Route>
         <Route path="/insert">
@@ -44,9 +44,13 @@ const App = () => {
         <Route path="/cart">
           <Cart />
         </Route>
-        <Route path="/search/:Type_search/:Product_name">
+        {/* <Route path="/search/:Type_search/:Product_name">
           <Search />
-        </Route>
+        </Route> */}
+        <Route
+          path="/search/:Type_search/:Product_name"
+          render={({ match }) => <Search key={match.params.product || 'empty'} />}
+        />
         <Route path="/Detail/:Product_ID">
           <Detail />
         </Route>

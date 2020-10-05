@@ -3,9 +3,12 @@ import '../App.css';
 import { Container, Row, Col } from 'reactstrap';
 import Book from '../component/book.js';
 import Slide from '../component/slide.js';
+import getCookie from '../component/getCookie.js';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 const Home = () => {
+  const history = useHistory();
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -14,6 +17,9 @@ const Home = () => {
         console.log(res.data.records)
         setData(res.data.records)
       })
+    if(getCookie("username") === ""){
+      history.push("/")
+    }
   }, []);
 
   return (

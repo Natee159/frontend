@@ -6,6 +6,7 @@ import {
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import getCookie from './getCookie.js';
 
 const Book = (props) => {
     const history = useHistory();
@@ -13,6 +14,7 @@ const Book = (props) => {
     const handleClick = () => {
         history.push("/detail/" + props.data.Product_id);
     }
+
     const handleClick1 = () => {
         axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
             "Total": parseInt(props.data.Total)-1,
@@ -34,11 +36,12 @@ const Book = (props) => {
             "Amount": "1",
             "Shipment": "postoffice",
             "Status": "รอชำระเงิน",
-            "Customer_id": "5"
+            "Customer_id": getCookie("Customer_ID")
         }))
             .then(res => {
                 console.log(res.data);
             })
+        alert("หยิบใส่ตะกร้าสำเร็จ")
     }
     return (
         <Col>
