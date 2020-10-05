@@ -11,6 +11,7 @@ import Register from './page/register.js';
 import Login from './page/login.js';
 import Cart from './page/cart.js';
 import Search from './page/search.js';
+import Allbook from './page/allbook.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,6 +29,9 @@ const App = () => {
         </Route>
         <Route path="/home">
           <Home />
+        </Route>
+        <Route  path="/allbook">
+          <Allbook />
         </Route>
         <Route path="/insert">
           <Insert />

@@ -3,28 +3,18 @@ import '../App.css';
 import { Container, Row, Col } from 'reactstrap';
 import Book from '../component/book.js';
 import Slide from '../component/slide.js';
-import getCookie from '../component/getCookie.js';
 import axios from 'axios';
-import { useHistory } from "react-router-dom";
 
-const Home = () => {
-  const history = useHistory();
+const Allbook = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost/api/product/show.php`)
+    axios.get(`http://localhost/api/product/read.php`)
       .then(res => {
         console.log(res.data.records)
         setData(res.data.records)
       })
-    if(getCookie("username") === ""){
-      history.push("/")
-    }
   }, []);
-
-  const handleClick = () => {
-    history.push("/allbook");
-}
 
   return (
       <Container>
@@ -35,17 +25,7 @@ const Home = () => {
             <Row>
               {data.map(d => <Book data={d} />)}
             </Row>
-            <p onClick={handleClick} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
-            <h1>หนังสือขายดี</h1>
-            <Row>
-              {data.map(d => <Book data={d} />)}
-            </Row>
-            <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
-            <h1>หนังสือออกใหม่</h1>
-            <Row>
-              {data.map(d => <Book data={d} />)}
-            </Row>
-            <p style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
+
           </Col>
           <Col className="picRight" xs="hide" sm="2" >
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
@@ -64,4 +44,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Allbook;

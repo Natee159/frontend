@@ -16,7 +16,7 @@ import {
   Col
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
-window.sessionStorage.setItem('user', '');
+import getCookie from './getCookie.js';
 
 const NavBar = (props) => {
   const history = useHistory();
@@ -33,22 +33,6 @@ const NavBar = (props) => {
     alert(Product_name)
     history.push("/search/" + Type_search +"/" + Product_name);
     history.go(0)
-  }
-
-  const getCookie = (cname) => {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
   }
 
   const logout = () => {

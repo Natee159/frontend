@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button, Form, CustomInput, Label, FormGroup } from 'reactstrap';
+import getCookie from '../component/getCookie.js';
 
 const Cart = () => {
     const [data, setData] = useState([])
-    const [Customer_id, setCustomer_id] = useState(5)
 
     useEffect(() => {
-        axios.get(`http://localhost/api/product/readpurchase.php?Customer_id=` + Customer_id)
+        axios.get(`http://localhost/api/product/readpurchase.php?Customer_id=` + getCookie("Customer_ID"))
             .then(res => {
                 console.log(res.data.records)
                 setData(res.data.records)
