@@ -14,7 +14,6 @@ const Search = () => {
             .then(res => {
                 console.log(res.data.records)
                 setData(res.data.records)
-                alert("search")
             })
     }, []);
 

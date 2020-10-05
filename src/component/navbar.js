@@ -28,8 +28,6 @@ const NavBar = (props) => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    alert(Type_search)
-    alert(Product_name)
     history.push("/search/" + Type_search +"/" + Product_name);
     history.go(0)
   }
@@ -67,6 +65,7 @@ const NavBar = (props) => {
                   <Col>
                     <FormGroup>
                       <Input onChange={e => { setType_search(e.target.value) }} type="select" name="selectMulti" id="exampleSelectMulti">
+                      <option value="" selected disabled hidden>Choose here</option>
                         <option value="Product_name">ชื่อหนังสือ</option>
                         <option value="Author_name">ชื่อผู้แต่ง</option>
                       </Input>
