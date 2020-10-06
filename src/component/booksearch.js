@@ -39,6 +39,7 @@ const Booksearch = (props) => {
             .then(res => {
                 console.log(res.data);
             })
+            alert("หยิบใส่ตะกร้าสำเร็จ")
     }
     return (
 
@@ -82,6 +83,7 @@ const Booksearch = (props) => {
                             <Col xs="6" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
                             <Col xs="6" className="cols"><p> หนังสือ </p></Col>
                             <Col xs="6" className="cols"><p>   {props.data.Price} บาท </p></Col>
+                            <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
                         </Row>
 
                     </div>
