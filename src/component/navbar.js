@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './navbar.css';
 import {
   Collapse,
   Navbar,
@@ -47,34 +48,25 @@ const NavBar = (props) => {
     <Navbar color="light" light expand="md">
       <Container>
         <NavbarBrand href="/home">Home</NavbarBrand>
-        <NavbarToggler onClick={toggle} />
+        <NavbarToggler className="tog" onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            {/* <NavItem>
-              <NavLink href="/admin">Admin</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/insert">Insert</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/update">Update</NavLink>
-            </NavItem> */}
             <NavItem>
               <Form onSubmit={handleSubmit}>
                 <Row>
-                  <Col>
+                  <Col sm="4" className="col11">
                     <FormGroup>
-                      <Input onChange={e => { setType_search(e.target.value) }} type="select" name="selectMulti" id="exampleSelectMulti">
+                      <Input  onChange={e => { setType_search(e.target.value) }} type="select" name="selectMulti" id="exampleSelectMulti">
                       <option value="" selected disabled hidden>Choose here</option>
                         <option value="Product_name">ชื่อหนังสือ</option>
                         <option value="Author_name">ชื่อผู้แต่ง</option>
                       </Input>
                     </FormGroup>
                   </Col>
-                  <Col>
-                    <Input type="textarea" onChange={e => { setProduct_name(e.target.value) }} />
+                  <Col sm="4" className="col12">
+                    <Input type="text" onChange={e => { setProduct_name(e.target.value) }} />
                   </Col>
-                  <Col>
+                  <Col sm="4" className="col13">
                     <Button>Submit</Button>
                   </Col>
                 </Row>
@@ -83,9 +75,9 @@ const NavBar = (props) => {
           </Nav>
 
           <Nav>
-            <NavItem>
+            <p className ="col14">
               {user}
-            </NavItem>
+            </p>
             <NavItem>
               <NavLink href="/cart">ตะกร้าสินค้า</NavLink>
             </NavItem>

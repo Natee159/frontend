@@ -24,8 +24,8 @@ const Allbook = () => {
             <h1>หนังสือแนะนำ</h1>
             <Row>
               {data.map(d => <Book data={d} />)}
+              a++;
             </Row>
-
           </Col>
           <Col className="picRight" xs="hide" sm="2" >
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
