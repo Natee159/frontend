@@ -30,7 +30,7 @@ const Booksearch = (props) => {
         axios.post(`http://localhost/api/product/insertorder.php`, JSON.stringify({
             "Date": "2020-10-01",
             "Time": "14:29:00",
-            "Total": props.data.Price,
+            "Total": (props.data.Price - (props.data.Price * props.data.Percent)),
             "Amount": "1",
             "Shipment": "postoffice",
             "Status": "รอชำระเงิน",
@@ -39,7 +39,7 @@ const Booksearch = (props) => {
             .then(res => {
                 console.log(res.data);
             })
-            alert("หยิบใส่ตะกร้าสำเร็จ")
+        alert("หยิบใส่ตะกร้าสำเร็จ")
     }
     return (
 
@@ -71,20 +71,29 @@ const Booksearch = (props) => {
                             <Col xs="4" className="cols2">รูป</Col>
                             <Col xs="8" className="cols2"><p>สาขาที่มีจำหน่าย</p></Col>
                         </Row>
-                        
+
                     </div>
 
                 </Col>
                 <Col xs="12" sm="4">
                     <div className="h2s">
-
-                        <Row >
-                            <Col xs="6" className="cols"><p> </p></Col>
-                            <Col xs="6" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
-                            <Col xs="6" className="cols"><p> หนังสือ </p></Col>
-                            <Col xs="6" className="cols"><p>   {props.data.Price} บาท </p></Col>
-                            <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
-                        </Row>
+                        {(props.data.Percent !== '0') ?
+                            <Row>
+                                <Col xs="6" className="cols"><p> </p></Col>
+                                <Col xs="6" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
+                                <Col xs="6" className="cols"><p> หนังสือ </p></Col>
+                                <Col xs="6" className="cols"><p>   {(props.data.Price-(props.data.Price*props.data.Percent))} บาท </p></Col>
+                                <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                            </Row>
+                            :
+                            <Row>
+                                <Col xs="6" className="cols"><p> </p></Col>
+                                <Col xs="6" className="cols"> <del><p className="ps"> </p></del></Col>
+                                <Col xs="6" className="cols"><p> หนังสือ </p></Col>
+                                <Col xs="6" className="cols"><p>   {props.data.Price} บาท </p></Col>
+                                <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                            </Row>
+                        }
 
                     </div>
 

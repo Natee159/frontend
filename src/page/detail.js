@@ -29,7 +29,7 @@ const Detail = () => {
         }
         const handleClick1 = () => {
             axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
-                "Total": parseInt(props.data.Total)-1,
+                "Total": parseInt(props.data.Total) - 1,
                 "Product_id": props.data.Product_id
             }))
                 .then(res => {
@@ -56,7 +56,7 @@ const Detail = () => {
             alert("หยิบใส่ตะกร้าสำเร็จ")
         }
 
-        
+
         return (
             <div>
                 {/* <CardTitle>{props.data.Product_name}</CardTitle>
@@ -74,22 +74,37 @@ const Detail = () => {
                         <h1 className="h1-de"> {props.data.Product_name}  </h1>
                         <p className="p1-de">   {props.data.Detail} </p>
                         <div className="s2">
-                            
-                            <Row >
-                            
-                            <Col xs="4" className="cols"><p> </p></Col>
-                            <Col xs="4" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
-                            <Col xs="4" className="cols"><p> </p></Col>
-                            <Col xs="4" className="cols"><p> หนังสือ </p></Col>
-                            <Col xs="4" className="cols"><p>   {props.data.Price} บาท </p></Col>
-                            <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
-                            
-                        </Row>
-                            
+
+                                {(props.data.Percent !== '0') ?
+                                    <Row>
+                                        <Col xs="4" className="cols"><p> </p></Col>
+                                        <Col xs="4" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
+                                        <Col xs="4" className="cols"><p> </p></Col>
+                                        <Col xs="4" className="cols"><p> หนังสือ </p></Col>
+                                        <Col xs="4" className="cols"><p> {(props.data.Price - (props.data.Price * props.data.Percent))} บาท </p></Col>
+                                        <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                    </Row>
+                                    :
+                                    <Row>
+                                        <Col xs="4" className="cols"><p> </p></Col>
+                                        <Col xs="4" className="cols"> <del><p className="ps">  </p></del></Col>
+                                        <Col xs="4" className="cols"><p> </p></Col>
+                                        <Col xs="4" className="cols"><p> หนังสือ </p></Col>
+                                        <Col xs="4" className="cols"><p> {(props.data.Price - (props.data.Price * props.data.Percent))} บาท </p></Col>
+                                        <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                    </Row>
+                                }
+                                {/* <Col xs="4" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
+                                <Col xs="4" className="cols"><p> </p></Col>
+                                <Col xs="4" className="cols"><p> หนังสือ </p></Col>
+                                <Col xs="4" className="cols"><p> {(props.data.Price - (props.data.Price * props.data.Percent))} บาท </p></Col>
+                                <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col> */}
+
+
                         </div>
                     </Col>
                 </Row>
-                
+
             </div>
 
         )

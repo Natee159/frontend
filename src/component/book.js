@@ -17,7 +17,7 @@ const Book = (props) => {
 
     const handleClick1 = () => {
         axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
-            "Total": parseInt(props.data.Total)-1,
+            "Total": parseInt(props.data.Total) - 1,
             "Product_id": props.data.Product_id
         }))
             .then(res => {
@@ -32,7 +32,7 @@ const Book = (props) => {
         axios.post(`http://localhost/api/product/insertorder.php`, JSON.stringify({
             "Date": "2020-10-01",
             "Time": "14:29:00",
-            "Total": props.data.Price,
+            "Total": (props.data.Price - (props.data.Price * props.data.Percent)),
             "Amount": "1",
             "Shipment": "postoffice",
             "Status": "รอชำระเงิน",
@@ -50,7 +50,16 @@ const Book = (props) => {
                     <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.data.Image)} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{props.data.Product_name}</CardTitle>
-                        <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
+                        {(props.data.Percent!=='0') ?
+                        <div>
+                            <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
+                            <CardSubtitle>ราคา {(props.data.Price-(props.data.Price*props.data.Percent))} บาท</CardSubtitle>
+                        </div>
+                            :
+                        <div>
+                            <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
+                        </div>
+                        }
                         <Button onClick={handleClick1}>หยิบใส่ตะกร้า</Button>
                     </CardBody>
                 </Card>
