@@ -9,7 +9,7 @@ const Allbook = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost/api/product/read.php`)
+    axios.get(`http://localhost/api/product/showallbook.php`)
       .then(res => {
         console.log(res.data.records)
         setData(res.data.records)
@@ -24,7 +24,6 @@ const Allbook = () => {
             <h1>หนังสือแนะนำ</h1>
             <Row>
               {data.map(d => <Book data={d} />)}
-              a++;
             </Row>
           </Col>
           <Col className="picRight" xs="hide" sm="2" >

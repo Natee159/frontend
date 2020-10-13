@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import {
-    Card, CardImg, CardBody,
-    CardTitle, CardSubtitle, Button
-} from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import getCookie from './getCookie.js';
 
 const Booksearch = (props) => {
     const history = useHistory();
-
+    const [date, setDate] = useState()
+    const [time, setTime] = useState()
+    useEffect(() => {
+        var d = new Date();
+        setDate(d.getFullYear()+"-"+ parseInt(d.getMonth() + 1)+"-"+ d.getDate())
+        setTime(d.getHours()+":"+ parseInt(d.getMinutes())+":"+ d.getSeconds())
+    }, []);
     const handleClick = () => {
         history.push("/detail/" + props.data.Product_id);
     }
@@ -28,13 +31,13 @@ const Booksearch = (props) => {
                 console.log(res.data);
             })
         axios.post(`http://localhost/api/product/insertorder.php`, JSON.stringify({
-            "Date": "2020-10-01",
-            "Time": "14:29:00",
+            "Date": date,
+            "Time": time,
             "Total": (props.data.Price - (props.data.Price * props.data.Percent)),
             "Amount": "1",
             "Shipment": "postoffice",
             "Status": "รอชำระเงิน",
-            "Customer_id": "5"
+            "Customer_id": getCookie("Customer_ID")
         }))
             .then(res => {
                 console.log(res.data);
@@ -43,18 +46,6 @@ const Booksearch = (props) => {
     }
     return (
 
-        // <Row>
-        //     <div>
-        //         <Card>
-        //             <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.data.Image)} alt="Card image cap" />
-        //             <CardBody>
-        //                 <CardTitle>{props.data.Product_name}</CardTitle>
-        //                 <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
-        //                 <Button onClick={handleClick1}>หยิบใส่ตะกร้า</Button>
-        //             </CardBody>
-        //         </Card>
-        //     </div>
-        // </Row>
         <div>
             <Row className="row1">
                 <Col xs="12" sm="2">

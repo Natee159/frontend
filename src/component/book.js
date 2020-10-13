@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Col } from 'reactstrap';
 import {
     Card, CardImg, CardBody,
@@ -10,10 +10,17 @@ import getCookie from './getCookie.js';
 
 const Book = (props) => {
     const history = useHistory();
-
+    const [date, setDate] = useState()
+    const [time, setTime] = useState()
     const handleClick = () => {
         history.push("/detail/" + props.data.Product_id);
     }
+
+    useEffect(() => {
+        var d = new Date();
+        setDate(d.getFullYear()+"-"+ parseInt(d.getMonth() + 1)+"-"+ d.getDate())
+        setTime(d.getHours()+":"+ parseInt(d.getMinutes())+":"+ d.getSeconds())
+    }, []);
 
     const handleClick1 = () => {
         axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
@@ -30,8 +37,8 @@ const Book = (props) => {
                 console.log(res.data);
             })
         axios.post(`http://localhost/api/product/insertorder.php`, JSON.stringify({
-            "Date": "2020-10-01",
-            "Time": "14:29:00",
+            "Date": date,
+            "Time": time,
             "Total": (props.data.Price - (props.data.Price * props.data.Percent)),
             "Amount": "1",
             "Shipment": "postoffice",
