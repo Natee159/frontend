@@ -75,7 +75,7 @@ const Book = (props) => {
         <div>
             <Row>
                 <Col xs="12" sm="2">
-                    <img className="s1" onClick={handleClick} src={require("../component/img/" + props.data.Image)} alt="Card image cap" />
+                    <img className="s1" onClick={handleClick} src={require("C:/xampp/htdocs/admin/src/component/img/" + props.data.Image)} alt="Card image cap" />
                 </Col>
                 <Col xs="12" sm="10">
                     <h1 className="h1-de"> {props.data.Product_name}  </h1>

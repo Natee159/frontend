@@ -54,7 +54,7 @@ const Book = (props) => {
         <Col>
             <div>
                 <Card>
-                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("./img/" + props.data.Image)} alt="Card image cap" />
+                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("C:/xampp/htdocs/admin/src/component/img/" + props.data.Image)} alt="Card image cap" />
                     <CardBody>
                         <CardTitle>{props.data.Product_name}</CardTitle>
                         {(props.data.Percent!=='0') ?
