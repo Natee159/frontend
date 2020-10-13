@@ -20,7 +20,7 @@ const Cart = () => {
     const handleClick = () => {
         alert("ชำระเงินเสร็จสิ้น")
         data.map(d => axios.post(`http://localhost/api/product/updateorder.php`, JSON.stringify({
-            "Status": "ชำระแล้ว",
+            "Status": "ชำระเงินแล้ว",
             "Order_Num": d.Order_Num
         })))
         window.location.reload(false);
