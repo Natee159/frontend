@@ -49,7 +49,7 @@ const Booksearch = (props) => {
         <div>
             <Row className="row1">
                 <Col xs="12" sm="2">
-                    <img className="pic-search" onClick={handleClick} src={require("../component/img/" + props.data.Image)} alt="Card image cap" />
+                    <img className="pic-search" onClick={handleClick} src={require("C:/xampp/htdocs/admin/src/component/img/" + props.data.Image)} alt="Card image cap" />
                 </Col>
 
                 <Col xs="12" sm="6">
