@@ -14,7 +14,11 @@ import {
   Form,
   FormGroup,
   Row,
-  Col
+  Col,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import getCookie from './getCookie.js';
@@ -38,6 +42,10 @@ const NavBar = (props) => {
     document.cookie = "Customer_ID=; path=/;"
     history.push("/")
     history.go(0)
+  }
+
+  const editdata = () => {
+    history.push("/updatedata")
   }
 
   useEffect(() => {
@@ -75,9 +83,6 @@ const NavBar = (props) => {
           </Nav>
 
           <Nav>
-            <p className ="col14">
-              {user}
-            </p>
             <NavItem>
               <NavLink href="/cart">ตะกร้าสินค้า</NavLink>
             </NavItem>
@@ -86,9 +91,18 @@ const NavBar = (props) => {
               <NavItem>
                 <NavLink href="/">เข้าสู่ระบบ</NavLink>
               </NavItem> :
-              <NavItem>
+              <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+              {user}
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem>
+                <NavItem>
                 <NavLink onClick={logout} href="#">ออกจากระบบ</NavLink>
               </NavItem>
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
             }
           </Nav>
         </Collapse>
