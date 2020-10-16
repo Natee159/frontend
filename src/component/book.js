@@ -23,6 +23,7 @@ const Book = (props) => {
     }, []);
 
     const handleClick1 = () => {
+        if(props.data.Total !== '0'){
         axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
             "Total": parseInt(props.data.Total) - 1,
             "Product_id": props.data.Product_id
@@ -49,6 +50,10 @@ const Book = (props) => {
                 console.log(res.data);
             })
         alert("หยิบใส่ตะกร้าสำเร็จ")
+        }
+        else{
+            alert("สินค้าหมด")
+        }
     }
     return (
         <Col>
