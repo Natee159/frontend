@@ -100,7 +100,7 @@ const Tr = (props) => {
                 console.log(res.data);
             })
         axios.post(`http://localhost/api/product/updatetotal.php`, JSON.stringify({
-            "Total": parseInt(props.data.Totalproduct) + num,
+            "Total": parseInt(props.data.Totalproduct) + num1,
             "Product_id": props.data.Product_id
         }))
             .then(res => {
