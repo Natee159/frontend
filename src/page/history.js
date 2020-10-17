@@ -32,14 +32,13 @@ const History = () => {
                                 <th>ราคา(บาท)</th>
                                 <th>จำนวน</th>
                                 <th>รวม(บาท)</th>
-                                <th>สถานะ</th>
-                                <th>ลบรายการ</th>
                             </tr>
                         </thead>
                         {data.map(d => <Tr data={d} total={data.Total} />)}
                     </table>
                 </Col>
             </Row>
+            <h1>ราคารวมสินค้า {data.reduce(function (sum, item) { return sum = sum + parseFloat(item.Totalorder) }, 0)} บาท</h1>
             
         </Container>
     )
