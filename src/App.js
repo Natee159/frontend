@@ -9,7 +9,9 @@ import Register from './page/register.js';
 import Login from './page/login.js';
 import Cart from './page/cart.js';
 import Search from './page/search.js';
-import Allbook from './page/allbook.js';
+import Allbookrate from './page/allbookrate.js';
+import Allbooksale from './page/allbooksale.js';
+import Allbooknew from './page/allbooknew.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -28,8 +30,14 @@ const App = () => {
         <Route path="/home">
           <Home />
         </Route>
-        <Route  path="/allbook">
-          <Allbook />
+        <Route  path="/allbookrate">
+          <Allbookrate />
+        </Route>
+        <Route  path="/allbooksale">
+          <Allbooksale />
+        </Route>
+        <Route  path="/allbooknew">
+          <Allbooknew />
         </Route>
         <Route path="/register">
           <Register />

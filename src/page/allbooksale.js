@@ -5,11 +5,11 @@ import Book from '../component/book.js';
 import Slide from '../component/slide.js';
 import axios from 'axios';
 
-const Allbook = () => {
+const Allbooksale = () => {
   const [data, setData] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost/api/product/showallbook.php`)
+    axios.get(`http://localhost/api/product/showallbooksale.php`)
       .then(res => {
         console.log(res.data.records)
         setData(res.data.records)
@@ -21,7 +21,7 @@ const Allbook = () => {
         <Row>
           <Col xs="12" sm="10">
             <Slide />
-            <h1>หนังสือแนะนำ</h1>
+            <h1>หนังสือขายดี</h1>
             <Row>
               {data.map(d => <Book data={d} />)}
             </Row>
@@ -43,4 +43,4 @@ const Allbook = () => {
   );
 }
 
-export default Allbook;
+export default Allbooksale;

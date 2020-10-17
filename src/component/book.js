@@ -65,7 +65,7 @@ const Book = (props) => {
                         {(props.data.Percent!=='0') ?
                         <div>
                             <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
-                            <CardSubtitle>ราคา {(props.data.Price-(props.data.Price*props.data.Percent))} บาท</CardSubtitle>
+                            <CardSubtitle>ลด {props.data.Promotion_Name} เหลือ {(props.data.Price-(props.data.Price*props.data.Percent))} บาท</CardSubtitle>
                         </div>
                             :
                         <div>
