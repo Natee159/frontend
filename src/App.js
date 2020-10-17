@@ -12,6 +12,7 @@ import Search from './page/search.js';
 import Allbookrate from './page/allbookrate.js';
 import Allbooksale from './page/allbooksale.js';
 import Allbooknew from './page/allbooknew.js';
+import History from './page/history.js';
 import {
   BrowserRouter as Router,
   Switch,
@@ -44,6 +45,9 @@ const App = () => {
         </Route>
         <Route path="/cart">
           <Cart />
+        </Route>
+        <Route path="/history">
+          <History/>
         </Route>
         <Route path="/updatedata">
           <Updatedata />

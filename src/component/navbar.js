@@ -96,6 +96,11 @@ const NavBar = (props) => {
               {user}
               </DropdownToggle>
               <DropdownMenu right>
+              <DropdownItem>
+                <NavItem>
+                <NavLink  href="/history">ประวัติสั่งซื้อ</NavLink>
+              </NavItem>
+                </DropdownItem>
                 <DropdownItem>
                 <NavItem>
                 <NavLink onClick={logout} href="#">ออกจากระบบ</NavLink>
