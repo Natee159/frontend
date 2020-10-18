@@ -3,8 +3,10 @@ import '../App.css';
 import { Container, Row, Col } from 'reactstrap';
 import Book from '../component/book.js';
 import Slide from '../component/slide.js';
+import Slide2 from '../component/slide2.js';
 import getCookie from '../component/getCookie.js';
 import axios from 'axios';
+import './home.css';
 import { useHistory } from "react-router-dom";
 
 const Home = () => {
@@ -45,36 +47,38 @@ const Home = () => {
 
   return (
     <Container>
-      <Row>
-        <Col xs="12" sm="10">
+      <Row className="head">
+        <Col xs="12" sm="9">
           <Slide />
-          <h1>หนังสือแนะนำ</h1>
+          <h3>หนังสือแนะนำ</h3>
           <Row>
             {data.map(d => <Book data={d} />)}
           </Row>
-          <p onClick={handleClick} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
-          <h1>หนังสือขายดี</h1>
+          <p onClick={handleClick} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม>></p>
+          <h3>หนังสือขายดี</h3>
           <Row>
             {data2.map(d => <Book data={d} />)}
           </Row>
-          <p onClick={handleClick1} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
-          <h1>หนังสือออกใหม่</h1>
+          <p onClick={handleClick1} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม>></p>
+          <h3>หนังสือออกใหม่</h3>
           <Row>
             {data3.map(d => <Book data={d} />)}
           </Row>
-          <p onClick={handleClick2} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม</p>
+          <p onClick={handleClick2} style={{ textAlign: 'right' }}>ดูรายการสินค้าเพิ่มเติม>></p>
         </Col>
-        <Col className="picRight" xs="hide" sm="2" >
+
+        <Col className="picRight" xs="hide" sm="3" >
+        <Slide2 />
+          <img width={'100%'} src={require('../component/pic/b5.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b6.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b7.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b8.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b9.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b10.png')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b11.png')} alt="picRight" />
+          {/* <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
           <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
-          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" />
+          <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight" /> */}
         </Col>
       </Row>
     </Container>

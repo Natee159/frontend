@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
-import { Col,Table } from 'reactstrap';
+import { Col,Row,Table } from 'reactstrap';
+
 const Commentshow = (props) => {
     return (
-      <Table>
-            <td>{props.data.Score}</td>
-            <td>{props.data.Date}</td>
-            <td>{props.data.Comment}</td>
-    </Table>
+
+    <Row className="col-c" >
+    <Col className="col-c1" sm="6">
+     <div>  <b> Score {props.data.Score} </b>    </div>
+    </Col>
+    
+    <Col className="col-c2" sm="6">
+    <div><b> Date  {props.data.Date}  </b>  </div>
+    </Col>
+    <Col  className="col-c3" sm="12">
+    <div><b> User  {props.data.Email} </b>   </div>
+    </Col>
+    
+    <Col className="col-c4" sm="12">
+    <div className="c1">{props.data.Comment}     </div>
+    </Col>
+    
+ </Row>
     );
   }
   

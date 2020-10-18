@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import getCookie from '../component/getCookie.js';
 import { useParams } from "react-router-dom";
 import Commentshow from '../component/commentshow.js';
+import './comment.css';
 const Comment = (props) => {
     const history = useHistory();
     const [score, setScore] = useState()
@@ -51,7 +52,18 @@ const Comment = (props) => {
                                 <p>Score</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setScore(e.target.value) }} />
+                            <div class="rate">
+                                    <input type="radio" id="star5" name="rate" onChange={e => { setScore(e.target.value = 5) }} />
+                                    <label for="star5" title="text">5 stars</label>
+                                    <input type="radio" id="star4" name="rate" onChange={e => { setScore(e.target.value = 4) }} />
+                                    <label for="star4" title="text">4 stars</label>
+                                    <input type="radio" id="star3" name="rate" onChange={e => { setScore(e.target.value = 3) }} />
+                                    <label for="star3" title="text">3 stars</label>
+                                    <input type="radio" id="star2" name="rate" onChange={e => { setScore(e.target.value = 2) }} />
+                                    <label for="star2" title="text">2 stars</label>
+                                    <input type="radio" id="star1" name="rate" onChange={e => { setScore(e.target.value = 1) }} />
+                                    <label for="star1" title="text">1 star</label>
+                                </div>
                             </Col>
                         </Row>
                         <Row>
@@ -59,14 +71,14 @@ const Comment = (props) => {
                                 <p>Comment</p>
                             </Col>
                             <Col>
-                                <input type="text" onChange={e => { setComment(e.target.value) }} />
+                             <textarea  rows="4" cols="70" onChange={e => { setComment(e.target.value) }}> </textarea>
                             </Col>
                         </Row>
-                        <Button onClick={handleSubmit} color="primary" type="submit">Comment</Button>
+                        <Button onClick={handleSubmit} style={{backgroundColor: '#FE1D20'}} type="submit">Comment</Button>
                     </form>
                 </Col>
             </Row>
-            <Table>
+            {/* <Table>
                 <thead>
                     <tr>
                         <th>Score</th>
@@ -79,7 +91,15 @@ const Comment = (props) => {
                         {data.map(d => <Commentshow data={d} />)}
                     </tr>
                 </tbody>
-            </Table>
+            </Table> */}
+            <Row>
+               <Col>
+               <div>
+                  {data.map(d => <Commentshow data={d} />)}
+               </div>     
+               </Col> 
+    
+            </Row>
             </Container>
       )
 }

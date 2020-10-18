@@ -9,26 +9,16 @@ import {
 
 const items = [
     {
-        src: require('./info5.png'),
-       
+        src: require('./img/info9.jpg'),
+        
     },
     {
-        src: require('./info6.png'),
-     
-    },
-    {
-      src: require('./info7.jpg'),
-    
-    },
-    {
-      src: require('./info8.jpg'),
-     
+        src: require('./img/info10.jpg'),
+      
     }
-    
-    
 ];
 
-const Slide = (props) => {
+const Slide2 = (props) => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [animating, setAnimating] = useState(false);
   
@@ -76,4 +66,4 @@ const Slide = (props) => {
     );
   }
 
-export default Slide
+export default Slide2

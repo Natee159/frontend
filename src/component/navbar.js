@@ -53,29 +53,29 @@ const NavBar = (props) => {
   }, []);
 
   return (
-    <Navbar color="light" light expand="md">
+    <Navbar className="navbar" style={{backgroundColor: '#1C2833'}}  light expand="md">
       <Container>
-        <NavbarBrand href="/home">Home</NavbarBrand>
+        <NavbarBrand style={{color: '#FEFDFD'}} href="/home">Home</NavbarBrand>
         <NavbarToggler className="tog" onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          <Nav    className="mr-auto" navbar>
             <NavItem>
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col sm="4" className="col11">
                     <FormGroup>
-                      <Input  onChange={e => { setType_search(e.target.value) }} type="select" name="selectMulti" id="exampleSelectMulti">
+                      <Input style={{height:"32px"}} onChange={e => { setType_search(e.target.value) }} type="select" name="selectMulti" id="exampleSelectMulti">
                       <option value="" selected disabled hidden>Choose here</option>
                         <option value="Product_name">ชื่อหนังสือ</option>
                         <option value="Author_name">ชื่อผู้แต่ง</option>
                       </Input>
                     </FormGroup>
                   </Col>
-                  <Col sm="4" className="col12">
-                    <Input type="text" onChange={e => { setProduct_name(e.target.value) }} />
+                  <Col sm="7" className="col12">
+                    <Input className="input" style={{height: "33px"}} type="text" onChange={e => { setProduct_name(e.target.value) }} />
                   </Col>
-                  <Col sm="4" className="col13">
-                    <Button>Submit</Button>
+                  <Col sm="1" className="col13">
+                    <Button className="button" style={{backgroundColor: '#FE1D20'}} > Submit</Button>
                   </Col>
                 </Row>
               </Form>
@@ -84,21 +84,22 @@ const NavBar = (props) => {
 
           <Nav>
             <NavItem>
-              <NavLink href="/cart">ตะกร้าสินค้า</NavLink>
+              <NavLink style={{color: '#FEFDFD'}} href="/cart">ตะกร้าสินค้า</NavLink>
             </NavItem>
             {
               getCookie("username") === "" ?
               <NavItem>
-                <NavLink href="/">เข้าสู่ระบบ</NavLink>
+                <NavLink  href="/">เข้าสู่ระบบ</NavLink>
               </NavItem> :
               <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
+              <DropdownToggle style={{color: '#FEFDFD'}} nav caret>
               {user}
               </DropdownToggle>
               <DropdownMenu right>
               <DropdownItem>
                 <NavItem>
                 <NavLink  href="/history">ประวัติสั่งซื้อ</NavLink>
+
               </NavItem>
                 </DropdownItem>
                 <DropdownItem>

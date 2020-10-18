@@ -7,7 +7,7 @@ import {
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import getCookie from './getCookie.js';
-
+import './book.css';
 const Book = (props) => {
     const history = useHistory();
     const [date, setDate] = useState()
@@ -56,27 +56,29 @@ const Book = (props) => {
         }
     }
     return (
-        <Col>
+        <Col > 
             <div>
-                <Card>
-                    <CardImg onClick={handleClick} top width="100%" height="300px" src={require("C:/xampp/htdocs/admin/src/component/img/" + props.data.Image)} alt="Card image cap" />
+                <Card className="card">
+                    <CardImg onClick={handleClick} top width="100%"  src={require("C:/xampp/htdocs/admin/src/component/img/" + props.data.Image)} alt="Card image cap" />
                     <CardBody>
-                        <CardTitle>{props.data.Product_name}</CardTitle>
+                        <CardTitle><b>{props.data.Product_name}</b></CardTitle>
                         {(props.data.Percent!=='0') ?
-                        <div>
-                            <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
-                            <CardSubtitle>ลด {props.data.Promotion_Name} เหลือ {(props.data.Price-(props.data.Price*props.data.Percent))} บาท</CardSubtitle>
+                        <div className="card2">
+                            <CardSubtitle><del>ราคา {props.data.Price} บาท</del></CardSubtitle>
+                            <CardSubtitle>ลด {props.data.Promotion_Name}  </CardSubtitle>
+                            <CardSubtitle>เหลือ {(props.data.Price-(props.data.Price*props.data.Percent))} บาท</CardSubtitle>
                         </div>
                             :
-                        <div>
+                        <div className="card3">
                             <CardSubtitle>ราคา {props.data.Price} บาท</CardSubtitle>
                         </div>
                         }
-                        <Button onClick={handleClick1}>หยิบใส่ตะกร้า</Button>
+                        <Button style={{backgroundColor: '#FE1D20'}} onClick={handleClick1}>หยิบใส่ตะกร้า</Button>
                     </CardBody>
                 </Card>
             </div>
         </Col>
+       
     )
 }
 

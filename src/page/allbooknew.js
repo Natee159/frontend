@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import { Container, Row, Col } from 'reactstrap';
 import Book from '../component/book.js';
+import Booksearch from '../component/booksearch.js';
 import Slide from '../component/slide.js';
 import axios from 'axios';
 
@@ -19,14 +20,15 @@ const Allbooknew = () => {
   return (
       <Container>
         <Row>
-          <Col xs="12" sm="10">
+          <Col className="new-book" xs="12" sm="10">
             <Slide />
             <h1>หนังสือใหม่</h1>
             <Row>
-              {data.map(d => <Book data={d} />)}
+              {data.map(d => <Booksearch data={d} />)}
             </Row>
           </Col>
-          <Col className="picRight" xs="hide" sm="2" >
+          {/* <Col className="picRight" xs="hide" sm="2" >
+            <img width={'100%'} src={require('../component/pic/b2.PNG')} alt="picRight"/>
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
@@ -36,8 +38,7 @@ const Allbooknew = () => {
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
             <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
-            <img width={'100%'} src={require('../component/pic/b4.PNG')} alt="picRight"/>
-          </Col>
+          </Col> */}
         </Row>
       </Container>
   );

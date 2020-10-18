@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Container, Row, Col, Button } from 'reactstrap';
 import { useHistory } from "react-router-dom";
-
+import './register.css';
 const Register = () => {
       const history = useHistory();
       const [Firstname, setFirstname] = useState()
@@ -36,76 +36,85 @@ const Register = () => {
 
       return (
             <Container>
-                  <Row>
+                  <Row style={{marginLeft: '260px'}} className="RE1">
                         <Col>
-                              <h1>Register</h1>
+                            
+                               <h1 className="h1-re">Register</h1> 
+                               
+                              
                               <form onSubmit={handleSubmit}>
                                     <Row>
-                                          <Col>
-                                                <p>Firstname</p>
+                                          <Col className="input3" sm="12">
+                                                <h5>ข้อมูลทั่วไป</h5>
                                           </Col>
-                                          <Col>
+                                          <Col className="input1" sm="12">
+                                                <p><b>Firstname</b></p>
+                                          </Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="text" onChange={e => { setFirstname(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Lastname</p>
+                                    
+                                    
+                                          <Col className="input1" sm="12">
+                                                <b> <p>Lastname</p></b>
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="text" onChange={e => { setLastname(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Gender</p>
+                                    
+                                    
+                                          <Col className="input1" sm="12"> 
+                                                 <b><p>Gender</p> </b>
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="radio" value="ชาย" onChange={e => { setGender(e.target.value) }} /> ชาย
                                                 <input type="radio" value="หญิง" onChange={e => { setGender(e.target.value) }} /> หญิง
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Date_birth</p>
+                                    
+                                    
+                                          <Col className="input1" sm="12">
+                                                 <b><p>Date_birth</p> </b>
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="date" onChange={e => { setDate_birth(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Phone_num</p>
+                                    
+                                    
+                                          <Col  className="input1" sm="12">
+                                                <b><p>Phone_num</p> </b>
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="text" onChange={e => { setPhone_num(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Address</p>
+                                    
+                                    
+                                          <Col  className="input1" sm="12">
+                                                 <b><p>Address</p> </b>
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="text" onChange={e => { setAddress(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Email</p>
+                                          <Col className="input3" sm="12">
+                                                <h5>ข้อมูลเข้าสู่ระบบ</h5>
                                           </Col>
-                                          <Col>
+                                   
+                                          <Col className="input1" sm="12">
+                                                 <b> <p>Email</p> </b>
+                                          </Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="text" onChange={e => { setEmail(e.target.value) }} />
                                           </Col>
-                                    </Row>
-                                    <Row>
-                                          <Col>
-                                                <p>Password</p>
+                                    
+                                    
+                                          <Col className="input1" sm="12"> 
+                                               <b><p>Password</p> </b> 
                                           </Col>
-                                          <Col>
+                                          <Col className="input2" sm="12">
                                                 <input type="password" onChange={e => { setPassword(e.target.value) }} />
                                           </Col>
                                     </Row>
-                                    <Button color="primary" type="submit">Add</Button>
+                                    
+                                    <Button style={{backgroundColor: '#FE1D20'}} className="button1" type="submit">Add</Button>
                               </form>
                         </Col>
                   </Row>

@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import getCookie from './getCookie.js';
-
+import './book.css';
 const Booksearch = (props) => {
     const history = useHistory();
     const [date, setDate] = useState()
@@ -59,8 +59,8 @@ const Booksearch = (props) => {
                     <p><b>ผู้เขียน</b> {props.data.Author_name} </p>
                     <div className="s4">
                         <Row>
-                            <Col xs="4" className="cols2">รูป</Col>
-                            <Col xs="8" className="cols2"><p>สาขาที่มีจำหน่าย</p></Col>
+                           
+                            <Col xs="12" className="cols2"><p>สาขาที่มีจำหน่าย</p></Col>
                         </Row>
 
                     </div>
@@ -74,7 +74,9 @@ const Booksearch = (props) => {
                                 <Col xs="6" className="cols"> <del><p className="ps"> {props.data.Price} บาท </p></del></Col>
                                 <Col xs="6" className="cols"><p> หนังสือ </p></Col>
                                 <Col xs="6" className="cols"><p>   {(props.data.Price-(props.data.Price*props.data.Percent))} บาท </p></Col>
-                                <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                <Col  xs="3">  </Col>
+                                <Col xs="3" className="cold">  <button style={{marginTop: '15px'}} onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                <Col  xs="6">  </Col>
                             </Row>
                             :
                             <Row>
@@ -82,7 +84,9 @@ const Booksearch = (props) => {
                                 <Col xs="6" className="cols"> <del><p className="ps"> </p></del></Col>
                                 <Col xs="6" className="cols"><p> หนังสือ </p></Col>
                                 <Col xs="6" className="cols"><p>   {props.data.Price} บาท </p></Col>
-                                <Col xs="4" className="cold">  <button onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                <Col  xs="3">  </Col>
+                                <Col xs="3" className="cold">  <button style={{marginTop: '15px'}} onClick={handleClick1}>ตะกร้าสินค้า</button></Col>
+                                <Col  xs="6">  </Col>
                             </Row>
                         }
 
